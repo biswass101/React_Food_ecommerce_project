@@ -19,9 +19,27 @@ const Footer = () => {
             <img src={assets.linkedin_icon} alt="" />
           </div>
         </div>
-        <div className="footer-content-center"></div>
-        <div className="footer-content-right"></div>
+        <div className="footer-content-center">
+          <h2>COMPANY</h2>
+          <ul>
+            <li>Home</li>
+            <li>About us</li>
+            <li>Delivery</li>
+            <li>Privacy policy</li>
+          </ul>
+        </div>
+        <div className="footer-content-right">
+          <h2>GET IN TOUCH</h2>
+          <ul>
+            <li>+823-23433-432</li>
+            <li>contact@foodvillage.com</li>
+          </ul>
+        </div>
       </div>
+      <hr/>
+      <p className="footer-copyright">
+        Copyright 2024 © foodvillage.com - All Right Reserved.
+      </p>
     </div>
   );
 };
