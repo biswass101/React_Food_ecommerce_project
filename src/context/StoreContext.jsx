@@ -1,10 +1,12 @@
 import { createContext, useEffect, useState } from "react";
 import { food_list } from "../assets/assets";
+import { useLocalStorage } from "../Hooks/UseLocalStorage";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-  const [cartItems, setCartItems] = useState({});
-
+  // console.log(props);
+  // const [cartItems, setCartItems] = useState({});
+  const [cartItems, setCartItems] = useLocalStorage('cartItems', {});
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
       // if items not available in the cart or adding item first time

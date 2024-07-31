@@ -6,11 +6,11 @@ import Cart from "./pages/Cart/Cart";
 import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
 import Footer from "./components/Footer/Footer";
 import LoginPopup from "./components/LoginPopup/LoginPopup";
-
+import '../src/App.css'
 const App = () => {
   const [showLogin, setShowLogin] = useState(false)
   return (
-    <>
+    <div className="app-container">
       {
         showLogin ? <LoginPopup setShowLogin = {setShowLogin}/> : <></>
       }
@@ -23,7 +23,7 @@ const App = () => {
         </Routes>
       </div>
       <Footer/>
-    </>
+    </div>
   );
 };
 

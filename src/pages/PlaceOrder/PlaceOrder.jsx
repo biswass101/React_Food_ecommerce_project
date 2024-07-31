@@ -1,8 +1,10 @@
 import React, { useCallback, useContext } from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
+import { useNavigate } from "react-router-dom";
 const PlaceOrder = () => {
-  const { getTotalCartAmount } = useContext(StoreContext);
+  const {setCartItems, getTotalCartAmount } = useContext(StoreContext);
+  const navigate = useNavigate()
   return (
     <form className="place-order">
       <div className="place-order-left">
@@ -44,7 +46,11 @@ const PlaceOrder = () => {
               </b>
             </div>
           </div>
-          <button onClick={() => alert("Your order has been placed")}>
+          <button onClick={() => {
+            navigate('/')
+            setCartItems({})
+            alert('Your order has been placed')
+          }}>
             PROCCED TO PAYMENT
           </button>
         </div>
