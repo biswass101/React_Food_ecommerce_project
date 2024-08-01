@@ -1,10 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { HamburgerContext } from "../../context/HamburgerDisplay";
 const Cart = () => {
   const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
   const navigate = useNavigate()
+  const {hamDis, setHamDis} = useContext(HamburgerContext)
+  const location = useLocation()
+  useEffect(() => {
+    if(location.pathname !== '/') setHamDis('none')
+    else setHamDis('inline')
+  }, [])
   return (
     <div className="cart">
       <div className="cart-items">

@@ -1,0 +1,30 @@
+.order-confirmed-container {
+    padding: 5rem;
+    display: grid;
+    place-items: center;
+    gap: 3rem;
+}
+
+.order-confirmed-container h1 {
+    color: tomato
+}
+
+.order-confirmed-container button {
+    background: transparent;
+    font-size: 16px;
+    color: #49557e;
+    border: 1px solid tomato;
+    padding: 10px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .order-confirmed-container {
+        font-size: 0.8rem;
+        padding: 2rem;
+        text-align: center;
+        gap: 2rem;
+    }
+}

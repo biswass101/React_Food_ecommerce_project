@@ -1,9 +1,16 @@
-import React, { useCallback, useContext } from "react";
+import React, {useContext, useEffect } from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { HamburgerContext } from "../../context/HamburgerDisplay";
 const PlaceOrder = () => {
   const {setCartItems, getTotalCartAmount } = useContext(StoreContext);
+  const {hamDis, setHamDis} = useContext(HamburgerContext)
+    const location = useLocation()
+    useEffect(() => {
+      if(location.pathname !== '/') setHamDis('none')
+      else setHamDis('inline')
+    }, [])
   const navigate = useNavigate()
   return (
     <form className="place-order">
@@ -47,9 +54,8 @@ const PlaceOrder = () => {
             </div>
           </div>
           <button onClick={() => {
-            navigate('/')
+            navigate('/order-confirmed')
             setCartItems({})
-            alert('Your order has been placed')
           }}>
             PROCCED TO PAYMENT
           </button>
